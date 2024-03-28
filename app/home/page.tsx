@@ -1,11 +1,15 @@
 import React from 'react'
 import Link from 'next/link'
 import { prisma } from '@/db'
+import TodoItem from '../components/TodoItem/TodoItem'
+
+const getTodos = () => {
+    return prisma.todo.findMany()
+}
 
 const Home = async () => {
-
-  const todos = await prisma.todo.findMany()
-
+    const todos = await getTodos()
+    
   return (
     <>
     <header className="flex justify-between items-center mb-4">
@@ -14,10 +18,11 @@ const Home = async () => {
     </header>
     <ul className="pl-4">
         {todos.map(todo => (
-            <li key={todo.id} className="flex justify-between items-center border-b border-slate-300 py-2">
-                <span>{todo.title}</span>
-                <span>{todo.completed ? '✅' : '❌'}</span>
-            </li>
+            // <li key={todo.id} className="flex justify-between items-center border-b border-slate-300 py-2">
+            //     <span>{todo.title}</span>
+            //     <span>{todo.completed ? '✅' : '❌'}</span>
+            // </li>
+            <TodoItem key={todo.id} {...todo} />
         ))}
     </ul>
     </>
