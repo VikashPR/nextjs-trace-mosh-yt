@@ -27,4 +27,4 @@ const TodoItem = ({ id, title, completed, toggleTodo }: TodoItemProps) => {
   );
 };
 
-export default TodoItem
+export default TodoItem;
