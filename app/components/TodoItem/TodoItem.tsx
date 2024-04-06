@@ -1,11 +1,11 @@
-"use client"
-import React from 'react'
+"use client";
+import React from "react";
 type TodoItemProps = {
-    id: string
-    title: string
-    completed: boolean
-    toggleTodo: (id: string, completed: boolean) => void
-    }
+  id: string;
+  title: string;
+  completed: boolean;
+  toggleTodo: (id: string, completed: boolean) => void;
+};
 
 const TodoItem = ({ id, title, completed, toggleTodo }: TodoItemProps) => {
   return (
